@@ -61,17 +61,29 @@ const BookList = () => (
   </React.Fragment>
 );
 
-const Book = ({ imgUrl, title, author }) => {
-  return (
-    <React.Fragment>
-      <article className="book">
-        <BookImg url={imgUrl} altName={`${title}CoverImg`} />
-        <BookTitle title={title} />
-        <BookAuthor author={author} />
-      </article>
-    </React.Fragment>
-  );
-};
+const Book = ({ imgUrl, title, author }) => (
+  <React.Fragment>
+    <article
+      className="book"
+      onMouseOver={() => {
+        console.log(title);
+      }}
+    >
+      <BookImg url={imgUrl} altName={`${title}CoverImg`} />
+      <BookTitle title={title} />
+      <BookAuthor author={author} />
+      <button
+        type="button"
+        onClick={(e) => {
+          alert(`You clicked the button!`);
+          console.log(e);
+        }}
+      >
+        Btn
+      </button>
+    </article>
+  </React.Fragment>
+);
 
 const BookImg = ({ url, altName }) => (
   <React.Fragment>
